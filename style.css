@@ -1,0 +1,84 @@
+body,
+html,
+* {
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  vertical-align: top;
+  display: inline-block;
+  width: calc(90% / 2);
+  margin: 50px 20px;
+}
+@media (max-width: 900px) {
+  section {
+    width: 90%;
+  }
+}
+
+h1,
+h2 {
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+ul {
+  margin: 30px 0;
+}
+li {
+  text-align: left;
+  list-style: none;
+  padding: 10px;
+  margin: 20px 0;
+  border: 1px solid darkslategray;
+}
+
+input {
+  padding: 5px;
+  margin: 10px;
+}
+.lastname input {
+  margin-left: 28px;
+}
+.email input {
+  margin-left: 23px;
+}
+
+button {
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+}
+.add-contact {
+  background: rgb(18, 117, 18);
+  margin-bottom: 20px;
+}
+.modify-contact {
+  background: rgb(62, 62, 255);
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+}
+.erase-contact {
+  background: rgb(255, 72, 26);
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+}
+
+.contact-manager header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-manager > div {
+  border: 1px solid grey;
+  position: relative;
+  padding: 20px;
+  height: 250px;
+}
