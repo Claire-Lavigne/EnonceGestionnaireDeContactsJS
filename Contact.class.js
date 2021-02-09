@@ -5,7 +5,7 @@ export default class Contact {
     this.email = email;
   }
   displayInfo() {
-    return `Nom : ${this.lastname} || Prénom : ${this.firstname} || Email : this.email`;
+    return `Nom : ${this.lastname} || Prénom : ${this.firstname} || Email : ${this.email}`;
   }
   verifyText() {
     if (this.firstname.length < 2) {

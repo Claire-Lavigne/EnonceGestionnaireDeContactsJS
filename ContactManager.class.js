@@ -1,14 +1,14 @@
-import { Contact } from './contact';
+import Contact from './Contact.class.js';
 
 export default class ContactManager {
   displayMenu() {
-    let data = prompt(`
+    let data = parseInt(prompt(`
     * 1 - Lister les contacts
     * 2 - Ajouter un nouveau contact
     * 3 - Modifier un contact existant
     * 4 - Supprimer un contact
     * 5 - Quitter le gestionnaire de contacts
-    `)
+    `));
 
     switch (data) {
       case 1:
@@ -36,21 +36,31 @@ export default class ContactManager {
   }
 
   addContact() {
-    let contactName = prompt('Veuillez insérer le nom du contact');
+    let contactLastname = prompt('Veuillez insérer le nom du contact').toString();
+    console.log(contactLastname)
+    let contactFirstname = prompt('Veuillez insérer le prénom du contact').toString();
+    console.log(contactFirstname)
+    
     // this.Contact.verifyText(contactName);
-    let contactEmail = prompt(`Veuillez insérer le mail du contact ${contactName}`)
+    let contactEmail = prompt(`Veuillez insérer le mail du contact '${contactFirstname} ${contactLastname}'`).toString();
+    console.log(contactEmail)
     // this.Contact.verifyEmail(contactEmail);
     // Bonus : Si l'email existe déjà, on a un message qui nous informe que l'email est déjà associé à un autre contact.
+    this.displayMenu();
   }
 
   modifyContact() {
-    let eraseContact = prompt('Veuillez insérer l\'email du contact à modifier');
+    let modifyContact = prompt('Veuillez insérer l\'email du contact à modifier').toString();
+    console.log(modifyContact)
     // modifier contact si existe dans displayContacts (le nom, le prénom ou l'email.)
+    this.displayMenu();
   }
 
   removeContact() {
     let eraseContact = prompt('Veuillez insérer l\'email du contact à supprimer');
+    console.log(eraseContact)
     // supprimer 1 contact si existe dans displayContacts
+    this.displayMenu();
   }
 
   /*
