@@ -5,18 +5,16 @@ export default class Contact {
     this.email = email;
   }
   displayInfo() {
-    return `Nom : ${this.lastname} || Prénom : ${this.firstname} || Email : ${this.email}`;
+    return `Prénom : ${this.firstname} || Nom : ${this.lastname} || Email : ${this.email}`;
   }
-  verifyText() {
-    if (this.firstname.length < 2) {
-      prompt('Veuillez entrer un prénom plus long')
-    } else if (this.lastname.length < 2) {
+  verifyText(firstname, lastname) {
+    if (lastname.trim().length < 2) {
       prompt('Veuillez entrer un nom plus long')
     }
   }
-  verifyEmail() {
+  verifyEmail(email) {
     let emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (emailRegex.test(this.email)) {
+    if (emailRegex.test(String(email).trim().toLowerCase())) {
       prompt('L\'email saisi est invalide')
     }
   }

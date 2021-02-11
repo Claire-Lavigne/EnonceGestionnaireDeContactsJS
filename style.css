@@ -32,6 +32,7 @@ li {
   padding: 10px;
   margin: 20px 0;
   border: 1px solid darkslategray;
+  cursor: pointer;
 }
 
 input {
@@ -52,6 +53,9 @@ button {
   padding: 10px 20px;
   background: black;
   color: white;
+}
+.clear {
+  margin-bottom: 20px;
 }
 .add-contact {
   background: rgb(18, 117, 18);

@@ -1,66 +1,59 @@
 import Contact from './Contact.class.js';
 
 export default class ContactManager {
-  displayMenu() {
-    let data = parseInt(prompt(`
-    * 1 - Lister les contacts
-    * 2 - Ajouter un nouveau contact
-    * 3 - Modifier un contact existant
-    * 4 - Supprimer un contact
-    * 5 - Quitter le gestionnaire de contacts
-    `));
-
-    switch (data) {
-      case 1:
-        this.displayContacts();
-        break;
-      case 2:
-        this.addContact();
-        break;
-      case 3:
-        this.modifyContact();
-        break;
-      case 4:
-        this.removeContact();
-        break;
-      case 5:
-        break;
-      default:
-        break;
-    }
+  constructor(contactList = []) {
+    this.contactList = contactList;
   }
 
+  init() {
+    let test = [];
+    let lastnameInput = document.querySelector('.lastname input').value;
+    let firstnameInput = document.querySelector('.firstname input').value;
+    let emailInput = document.querySelector('.email input').value;
+    let contactValues = new Contact(firstnameInput, lastnameInput, emailInput);
+  }
   displayContacts() {
-    console.log('Liste des contacts :');
-    this.displayMenu();
+    let ul = document.querySelector('.contact-list');
+
+    this.contactList.forEach(contact => {
+      
+			console.log(`${contact.displayInfo()}`);
+      let li = document.createElement('li');
+      li.className = "item";
+      li.textContent = contact.firstname;
+      ul.appendChild(li);
+    })
   }
 
   addContact() {
-    let contactLastname = prompt('Veuillez insérer le nom du contact').toString();
-    console.log(contactLastname)
-    let contactFirstname = prompt('Veuillez insérer le prénom du contact').toString();
-    console.log(contactFirstname)
-    
-    // this.Contact.verifyText(contactName);
-    let contactEmail = prompt(`Veuillez insérer le mail du contact '${contactFirstname} ${contactLastname}'`).toString();
-    console.log(contactEmail)
+console.log(this.init)
+    let newContact = init().contactValues
+
+    this.contactList.push(newContact);
+
+    // contactClass.verifyEmail(contactEmail);
     // this.Contact.verifyEmail(contactEmail);
     // Bonus : Si l'email existe déjà, on a un message qui nous informe que l'email est déjà associé à un autre contact.
-    this.displayMenu();
+
   }
 
   modifyContact() {
     let modifyContact = prompt('Veuillez insérer l\'email du contact à modifier').toString();
     console.log(modifyContact)
     // modifier contact si existe dans displayContacts (le nom, le prénom ou l'email.)
-    this.displayMenu();
   }
 
   removeContact() {
-    let eraseContact = prompt('Veuillez insérer l\'email du contact à supprimer');
-    console.log(eraseContact)
+
+    let removeContact = new Contact(firstnameInput.value, lastnameInput.value, emailInput.value);
+
+    this.contactList.forEach(contact => {
+      if (contact.email == contactEmail) {
+        console.log(contact.unpush(removeContact));
+      }
+    })
+
     // supprimer 1 contact si existe dans displayContacts
-    this.displayMenu();
   }
 
   /*
